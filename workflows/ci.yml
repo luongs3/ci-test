@@ -1,0 +1,13 @@
+name: Build
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      TestFolder: tests/services
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "folder $TestFolder"
+    
