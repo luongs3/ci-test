@@ -1,6 +1,6 @@
-name: Build
-
-on: [push]
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [pull_request]
 
 env:
   TEST_FOLDER: ${{ github.base_ref == 'main' && 'tests' || 'tests/services' }}
@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "test folder $TEST_FOLDER"
-      - run: echo "github.base_ref $github.base_ref"
-      - run: echo "github.ref $github.ref"
+      - run: echo "GITHUB_BASE_REF $GITHUB_BASE_REF"
+      - run: echo "GITHUB_REF $GITHUB_REF"
+      - run: echo "GITHUB_HEAD_REF $GITHUB_HEAD_REF"
     
