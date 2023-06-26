@@ -2,12 +2,15 @@ name: Build
 
 on: [push]
 
+env:
+  TEST_FOLDER: ${{ github.base_ref == 'master' && 'tests' || 'tests/services' }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      TestFolder: tests/services
     steps:
       - uses: actions/checkout@v3
-      - run: echo "folder $TestFolder"
+      - run: echo "test folder $TEST_FOLDER"
+      - run: echo "github.base_ref $github.base_ref"
+      - run: echo "github.ref $github.ref"
     
