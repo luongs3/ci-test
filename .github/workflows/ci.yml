@@ -3,7 +3,7 @@ name: Build
 on: [push]
 
 env:
-  TEST_FOLDER: ${{ github.base_ref == 'master' && 'tests' || 'tests/services' }}
+  TEST_FOLDER: ${{ github.base_ref == 'main' && 'tests' || 'tests/services' }}
 
 jobs:
   test:
